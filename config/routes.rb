@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   root to: 'main#index'
+  get 'contact_us', to: 'main#contact_us'
 
   get 'coffee_market', to: 'markets#index'
 

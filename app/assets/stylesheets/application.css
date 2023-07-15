@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+
+  .nav-item {
+    margin-right: 10px; /* Adjust the value to increase or decrease the space between the elements */
+  }

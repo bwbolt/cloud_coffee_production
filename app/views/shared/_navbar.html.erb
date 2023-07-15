@@ -26,6 +26,9 @@
             <span class="navbar-text"><%= Current.user.email %></span>
           </li>
           <li class="nav-item">
+            <%= button_to "Contact Us", contact_us_path, method: :get, class: "btn btn-outline-secondary"%>
+          </li>
+          <li class="nav-item">
             <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-outline-secondary"%>
           </li>
         <% else %>

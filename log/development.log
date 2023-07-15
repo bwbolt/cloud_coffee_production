@@ -1370,3 +1370,492 @@ Processing by UserLotsController#new as HTML
 Completed 200 OK in 74ms (Views: 64.9ms | ActiveRecord: 2.2ms)
 
 
+Started GET "/" for ::1 at 2023-07-15 15:34:14 -0400
+  
+ActiveRecord::NoDatabaseError (connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "cloud_coffee_production_development" does not exist
+):
+  
+activerecord (5.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:696:in `rescue in connect'
+activerecord (5.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:691:in `connect'
+activerecord (5.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:223:in `initialize'
+activerecord (5.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:48:in `new'
+activerecord (5.2.8) lib/active_record/connection_adapters/postgresql_adapter.rb:48:in `postgresql_connection'
+activerecord (5.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:830:in `new_connection'
+activerecord (5.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:874:in `checkout_new_connection'
+activerecord (5.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:853:in `try_to_checkout_new_connection'
+activerecord (5.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:814:in `acquire_connection'
+activerecord (5.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:538:in `checkout'
+activerecord (5.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:382:in `connection'
+activerecord (5.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:1033:in `retrieve_connection'
+activerecord (5.2.8) lib/active_record/connection_handling.rb:118:in `retrieve_connection'
+activerecord (5.2.8) lib/active_record/connection_handling.rb:90:in `connection'
+activerecord (5.2.8) lib/active_record/migration.rb:554:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.8) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3.1) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3.1) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (240.0ms)[0m  [1m[35mCREATE DATABASE "cloud_coffee_production_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE DATABASE "cloud_coffee_production_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (23.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4451920101398050890)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20220614194313)
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220614194313_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220614194313"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateLots (20220615011013)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "lots" ("id" bigserial primary key, "name" character varying, "sku" character varying, "importer" character varying, "description" character varying, "us_arrival" date, "price_per_lb" float, "sample_roasted_date" date, "density" float, "moisture" float, "bean_size" character varying, "pounds_recieved" integer, "quantity_recieved" integer, "current_amount" float, "invoice_number" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7afc1a8e38"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20220615011013_create_lots.rb:3
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_lots_on_user_id" ON "lots"  ("user_id")[0m
+  ↳ db/migrate/20220615011013_create_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220615011013"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddPccIdToLots (20220619145923)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "lots" ADD "pcc_id" character varying[0m
+  ↳ db/migrate/20220619145923_add_pcc_id_to_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220619145923"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RemovePoundsRecievedFromLots (20220620190517)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "lots" DROP COLUMN "pounds_recieved"[0m
+  ↳ db/migrate/20220620190517_remove_pounds_recieved_from_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220620190517"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddItemSizeToLots (20220620190759)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "lots" ADD "item_size" character varying[0m
+  ↳ db/migrate/20220620190759_add_item_size_to_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220620190759"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddKgReceivedToLots (20220620190850)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "lots" ADD "kg_received" float[0m
+  ↳ db/migrate/20220620190850_add_kg_received_to_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220620190850"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RemovePricePerLbFromLots (20220620191819)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "lots" DROP COLUMN "price_per_lb"[0m
+  ↳ db/migrate/20220620191819_remove_price_per_lb_from_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220620191819"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddPricePerToLots (20220620192022)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "lots" ADD "price_per" float[0m
+  ↳ db/migrate/20220620192022_add_price_per_to_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220620192022"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateLogs (20220620193438)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "logs" ("id" bigserial primary key, "batches" integer, "batch_size_kg" float, "lot_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a7dcc6dd24"
+FOREIGN KEY ("lot_id")
+  REFERENCES "lots" ("id")
+)[0m
+  ↳ db/migrate/20220620193438_create_logs.rb:3
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_logs_on_lot_id" ON "logs"  ("lot_id")[0m
+  ↳ db/migrate/20220620193438_create_logs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220620193438"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddTotalRoastedToLogs (20220620194753)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "logs" ADD "total_roasted" float[0m
+  ↳ db/migrate/20220620194753_add_total_roasted_to_logs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220620194753"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddStatusToLots (20220624190055)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "lots" ADD "status" integer[0m
+  ↳ db/migrate/20220624190055_add_status_to_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220624190055"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddWeightOutToLogs (20220810193354)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "logs" ADD "weight_out" float[0m
+  ↳ db/migrate/20220810193354_add_weight_out_to_logs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220810193354"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddIcoToLots (20220812145035)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "lots" ADD "ico" character varying[0m
+  ↳ db/migrate/20220812145035_add_ico_to_lots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220812145035"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddMoistureLossToLogs (20220929195215)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "logs" ADD "moisture_loss" float[0m
+  ↳ db/migrate/20220929195215_add_moisture_loss_to_logs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220929195215"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCurrentProducts (20221207175642)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "current_products" ("id" bigserial primary key, "name" character varying, "details" text, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a69a06f62f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20221207175642_create_current_products.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_current_products_on_user_id" ON "current_products"  ("user_id")[0m
+  ↳ db/migrate/20221207175642_create_current_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221207175642"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrderRequests (20221208185454)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "order_requests" ("id" bigserial primary key, "employee_name" character varying, "recipient_name" character varying, "reason" character varying, "need_by_date" date, "status" integer DEFAULT 0, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_bd500c8dcd"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20221208185454_create_order_requests.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_order_requests_on_user_id" ON "order_requests"  ("user_id")[0m
+  ↳ db/migrate/20221208185454_create_order_requests.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221208185454"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrderPieces (20221208200750)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "order_pieces" ("id" bigserial primary key, "quantity" integer, "coffee_name" character varying, "size" character varying, "ground" character varying, "order_request_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_875bd60986"
+FOREIGN KEY ("order_request_id")
+  REFERENCES "order_requests" ("id")
+)[0m
+  ↳ db/migrate/20221208200750_create_order_pieces.rb:3
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_order_pieces_on_order_request_id" ON "order_pieces"  ("order_request_id")[0m
+  ↳ db/migrate/20221208200750_create_order_pieces.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221208200750"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddInvoiceNumberToOrderRequests (20221209004215)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "order_requests" ADD "invoice_number" character varying[0m
+  ↳ db/migrate/20221209004215_add_invoice_number_to_order_requests.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221209004215"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RemoveGroundFromOrderPieces (20221209005856)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "order_pieces" DROP COLUMN "ground"[0m
+  ↳ db/migrate/20221209005856_remove_ground_from_order_pieces.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221209005856"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddGroundToOrderPieces (20221209005948)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "order_pieces" ADD "ground" character varying[0m
+  ↳ db/migrate/20221209005948_add_ground_to_order_pieces.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221209005948"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateBlends (20230516013407)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "blends" ("id" bigserial primary key, "name" character varying, "notes" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9d9b60c502"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20230516013407_create_blends.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_blends_on_user_id" ON "blends"  ("user_id")[0m
+  ↳ db/migrate/20230516013407_create_blends.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230516013407"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateBlendLogs (20230516020215)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "blend_logs" ("id" bigserial primary key, "blend_id" bigint, "log_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_dc2bd96a64"
+FOREIGN KEY ("blend_id")
+  REFERENCES "blends" ("id")
+, CONSTRAINT "fk_rails_56fd63e9cb"
+FOREIGN KEY ("log_id")
+  REFERENCES "logs" ("id")
+)[0m
+  ↳ db/migrate/20230516020215_create_blend_logs.rb:3
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_blend_logs_on_blend_id" ON "blend_logs"  ("blend_id")[0m
+  ↳ db/migrate/20230516020215_create_blend_logs.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_blend_logs_on_log_id" ON "blend_logs"  ("log_id")[0m
+  ↳ db/migrate/20230516020215_create_blend_logs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230516020215"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-15 19:34:55.043411"], ["updated_at", "2023-07-15 19:34:55.043411"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4451920101398050890)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2023-07-15 15:35:25 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brycewein/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by MainController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered shared/_navbar.html.erb (0.5ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 152ms (Views: 136.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/sign_up" for ::1 at 2023-07-15 15:35:27 -0400
+Processing by RegistrationsController#new as HTML
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (9.5ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 54ms (Views: 26.0ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/sign_in" for ::1 at 2023-07-15 15:35:28 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/sign_in" for ::1 at 2023-07-15 15:35:30 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_flash.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 30.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sign_in" for ::1 at 2023-07-15 15:35:31 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.9ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_flash.html.erb (0.5ms)
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sign_in" for ::1 at 2023-07-15 15:35:35 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.0ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_flash.html.erb (0.7ms)
+Completed 200 OK in 47ms (Views: 43.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sign_in" for ::1 at 2023-07-15 15:35:37 -0400
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2np7lQALeSiZiGUqD/VuMkb7zY9LGFctA6o1hNZGvh4j52KIAnysB4yPGuPSq0ApWCNSGlPqP0crIg8ErW76/A==", "email"=>"bryce.wein@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bryce.wein@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered shared/_navbar.html.erb (0.5ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 74ms (Views: 47.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/sign_up" for ::1 at 2023-07-15 15:35:39 -0400
+Processing by RegistrationsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (5.2ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 42ms (Views: 37.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sign_up" for ::1 at 2023-07-15 15:36:00 -0400
+Processing by RegistrationsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ww7xm42afeL8Z2bQ9D92AFnFMSPAUvYxOrviG9dwEptgSIt0GbLgDWM+E5XxvHr2GOdlrqeoGQ08rHZuDm4MFw==", "user"=>{"email"=>"bryce.wein@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (12.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/registrations_controller.rb:8
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (2.1ms)
+  Rendered shared/_navbar.html.erb (0.5ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 350ms (Views: 28.0ms | ActiveRecord: 14.4ms)
+
+
+Started POST "/sign_up" for ::1 at 2023-07-15 15:36:10 -0400
+Processing by RegistrationsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ww7xm42afeL8Z2bQ9D92AFnFMSPAUvYxOrviG9dwEptgSIt0GbLgDWM+E5XxvHr2GOdlrqeoGQ08rHZuDm4MFw==", "user"=>{"email"=>"bryce.wein@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:8
+  [1m[36mUser Create (5.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "bryce.wein@gmail.com"], ["password_digest", "$2a$12$WxUKmjya2SwZ.ybb7LYejubD8g6eVMA1GVF9jq.PSOCGanb1SwgaS"], ["created_at", "2023-07-15 19:36:10.824631"], ["updated_at", "2023-07-15 19:36:10.824631"]]
+  ↳ app/controllers/registrations_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registrations_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 200 OK in 309ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/" for ::1 at 2023-07-15 15:36:10 -0400
+Processing by MainController#index as HTML
+  [1m[36mUser Load (38.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.3ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+  Rendered shared/_flash.html.erb (0.5ms)
+Completed 200 OK in 109ms (Views: 21.6ms | ActiveRecord: 38.3ms)
+
+
+Started GET "/users/1/lots" for ::1 at 2023-07-15 15:36:12 -0400
+Processing by UserLotsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/index.html.erb within layouts/application
+  [1m[36mLot Load (1.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1 AND (lots.status = 2 or lots.status = 1)[0m  [["user_id", 1]]
+  ↳ app/views/user_lots/index.html.erb:33
+  Rendered user_lots/index.html.erb within layouts/application (22.2ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 48ms (Views: 36.0ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/users/1%3E/lots_to_csv.csv" for ::1 at 2023-07-15 15:36:14 -0400
+Processing by UserLotsController#download_csv as CSV
+  Parameters: {"user_id"=>"1>"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/lot.rb:31
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data lots-2023-07-15.csv (3.9ms)
+Completed 200 OK in 15ms (Views: 3.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1/lots" for ::1 at 2023-07-15 15:39:24 -0400
+Processing by UserLotsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/index.html.erb within layouts/application
+  [1m[36mLot Load (1.1ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1 AND (lots.status = 2 or lots.status = 1)[0m  [["user_id", 1]]
+  ↳ app/views/user_lots/index.html.erb:33
+  Rendered user_lots/index.html.erb within layouts/application (6.5ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 39.1ms | ActiveRecord: 1.7ms)
+
+

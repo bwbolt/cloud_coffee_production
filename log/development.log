@@ -1231,3 +1231,142 @@ Processing by MainController#index as HTML
 Completed 200 OK in 32ms (Views: 28.8ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for ::1 at 2023-07-15 15:16:05 -0400
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brycewein/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by MainController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.5ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 167ms (Views: 133.1ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/users/1/lots" for ::1 at 2023-07-15 15:16:07 -0400
+Processing by UserLotsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/index.html.erb within layouts/application
+  [1m[36mLot Load (1.9ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1 AND (lots.status = 2 or lots.status = 1)[0m  [["user_id", 1]]
+  ↳ app/views/user_lots/index.html.erb:32
+  Rendered user_lots/index.html.erb within layouts/application (39.2ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 71ms (Views: 47.0ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/users/1/logs" for ::1 at 2023-07-15 15:16:08 -0400
+Processing by UserLogsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (19.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_logs/index.html.erb within layouts/application
+  [1m[36mLog Load (4.0ms)[0m  [1m[34mSELECT "logs".* FROM "logs" INNER JOIN "lots" ON "logs"."lot_id" = "lots"."id" WHERE "lots"."user_id" = $1 ORDER BY "logs"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/user_logs/index.html.erb:38
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  [1m[36mCACHE Lot Load (0.0ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  [1m[36mCACHE Lot Load (0.0ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  [1m[36mCACHE Lot Load (0.0ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  [1m[36mCACHE Lot Load (0.0ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  [1m[36mCACHE Lot Load (0.0ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  [1m[36mCACHE Lot Load (0.0ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  [1m[36mCACHE Lot Load (0.0ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_logs/index.html.erb:43
+  Rendered user_logs/index.html.erb within layouts/application (33.9ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 73ms (Views: 38.9ms | ActiveRecord: 30.1ms)
+
+
+Started GET "/users/1/lots" for ::1 at 2023-07-15 15:16:08 -0400
+Processing by UserLotsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/index.html.erb within layouts/application
+  [1m[36mLot Load (6.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1 AND (lots.status = 2 or lots.status = 1)[0m  [["user_id", 1]]
+  ↳ app/views/user_lots/index.html.erb:32
+  Rendered user_lots/index.html.erb within layouts/application (22.2ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 69ms (Views: 58.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/users/1/lots" for ::1 at 2023-07-15 15:16:24 -0400
+Processing by UserLotsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/index.html.erb within layouts/application
+  [1m[36mLot Load (1.0ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1 AND (lots.status = 2 or lots.status = 1)[0m  [["user_id", 1]]
+  ↳ app/views/user_lots/index.html.erb:34
+  Rendered user_lots/index.html.erb within layouts/application (4.3ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 29ms (Views: 23.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1/lots" for ::1 at 2023-07-15 15:16:32 -0400
+Processing by UserLotsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.9ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1 AND (lots.status = 2 or lots.status = 1)[0m  [["user_id", 1]]
+  ↳ app/views/user_lots/index.html.erb:33
+  Rendered user_lots/index.html.erb within layouts/application (6.2ms)
+  Rendered shared/_navbar.html.erb (1.2ms)
+  Rendered shared/_flash.html.erb (0.5ms)
+Completed 200 OK in 47ms (Views: 39.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/1/lots" for ::1 at 2023-07-15 15:16:35 -0400
+Processing by UserLotsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/index.html.erb within layouts/application
+  [1m[36mLot Load (23.0ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1 AND (lots.status = 2 or lots.status = 1)[0m  [["user_id", 1]]
+  ↳ app/views/user_lots/index.html.erb:33
+  Rendered user_lots/index.html.erb within layouts/application (30.3ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+  Rendered shared/_flash.html.erb (0.5ms)
+Completed 200 OK in 72ms (Views: 41.7ms | ActiveRecord: 23.7ms)
+
+
+Started GET "/users/1/lots/new" for ::1 at 2023-07-15 15:16:36 -0400
+Processing by UserLotsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/new.html.erb within layouts/application
+  Rendered user_lots/new.html.erb within layouts/application (80.9ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 108ms (Views: 99.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1/lots/new" for ::1 at 2023-07-15 15:17:10 -0400
+Processing by UserLotsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering user_lots/new.html.erb within layouts/application
+  Rendered user_lots/new.html.erb within layouts/application (15.0ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+  Rendered shared/_flash.html.erb (0.4ms)
+Completed 200 OK in 74ms (Views: 64.9ms | ActiveRecord: 2.2ms)
+
+

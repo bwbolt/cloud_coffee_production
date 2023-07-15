@@ -1,0 +1,2 @@
+module UserCurrentProductsHelper
+end

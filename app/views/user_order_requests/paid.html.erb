@@ -1,0 +1,57 @@
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="false" href=<%=user_order_requests_path(Current.user)%>>Order Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="false" href=<%=  user_completed_orders_path(Current.user) %>>Completed Requests</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href=<%=  user_paid_orders_path(Current.user) %>>Paid Requests</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Paid Requests</h4>
+    
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+
+          <th scope="col">Employee Name</th>
+          <th scope="col">Recipient Name</th>
+          <th scope="col">Reason</th>
+          <th scope="col">Need By Date</th>
+           <th scope="col">Invoice Number</th>
+          <th scope="col">Actions</th>
+           
+          
+
+        </tr>
+      </thead>
+       <tbody>
+        <% @paid_order_requests.each do |order_request| %>
+        
+            <tr class="table-primary">
+                      <td><%= order_request.employee_name %></td>
+                      <td><%= order_request.recipient_name %></td>
+                        <td><%= order_request.reason %></td>
+                        <td><%= order_request.need_by_date %></td>
+                        <td><%= order_request.invoice_number %></td>
+
+                        <td>
+                          <a class="btn btn" href="<%= user_order_request_path(Current.user, order_request.id)%>"  data-method="get" role="button" >Show</a>
+                        </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
+              
+
+            </div>
+          </div>

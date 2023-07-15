@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Blend Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Blend</th>
+      <th>Log</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blend_logs.each do |blend_log| %>
+      <tr>
+        <td><%= blend_log.blend %></td>
+        <td><%= blend_log.log %></td>
+        <td><%= link_to 'Show', blend_log %></td>
+        <td><%= link_to 'Edit', edit_blend_log_path(blend_log) %></td>
+        <td><%= link_to 'Destroy', blend_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blend Log', new_blend_log_path %>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @blend.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @blend.notes %>
+</p>
+
+<p>
+  <strong>Roasts Used:</strong>
+  <% @blend.blend_logs.each do |blend_log|%>
+  <%=blend_log.log.id %>
+  <%=blend_log.log.lot.name %>
+  <%end%>
+</p>
+
+
+<%= link_to 'Back', blends_path %>

@@ -1,0 +1,60 @@
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link " href=<%= user_lots_path(Current.user) %>>Inventory</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href="#">Detailed Inventory</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Current Inventory</h4>
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+
+          <th scope="col">Name</th>
+          <th scope="col">PCC ID</th>
+          <th scope="col">SKU</th>
+          <th scope="col">ICO</th>
+          <th scope="col">Importer</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price Per Lb</th>
+          <th scope="col">US Arrival</th>
+          <th scope="col">Unit Size</th>
+          <th scope="col">Quantity Reveived</th>
+          <th scope="col">Kg Received</th>
+          <th scope="col">Invoice Number</th>
+          <th scope="col">Added Date</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @inventory.each do |lot| %>
+          <tr>
+            <td><%= lot.name %></td>
+            <td><%= lot.pcc_id %></td>
+            <td><%= lot.sku %></td>
+            <td><%= lot.ico %></td>
+            <td><%= lot.importer %></td>
+            <td><%= lot.description %></td>
+            <td><%= lot.price_per %></td>
+            <td><%= lot.us_arrival %></td>
+            <td><%= lot.item_size %></td>
+            <td><%= lot.quantity_recieved %></td>
+            <td><%= lot.kg_received %></td>
+            <td><%= lot.invoice_number %></td>
+            <td><%= lot.created_at %></td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

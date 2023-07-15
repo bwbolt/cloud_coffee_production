@@ -1,0 +1,90 @@
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link " href=<%= user_logs_path%>>Roast Log</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href=<%= new_user_log_path %>>Todays Roast</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Todays Roast</h4>
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+
+          <th scope="col">Batches</th>
+          <th scope="col">Batch Size (Kg)</th>
+          <th scope="col">Coffee Name</th>
+          <th scope="col">Coffee Pcc Id</th>
+          <th scope="col">Total Roasted (Kg)</th>
+          <th scope="col">Weight Out (Kg)</th>
+          <th scope="col">Moisture Loss</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% Current.user.logs.todays_logs.each do |log| %>
+
+          <tr>
+            <td><%= log.batches %></td>
+            <td><%= log.batch_size_kg %></td>
+            <td><%= log.lot.name %></td>
+            <td><%= log.lot.pcc_id %></td>
+            <td><%= log.total_roasted %></td>
+            <% if log.weight_out.nil? %>
+              <td>
+                <%= form_with url: user_log_weight_out_path(Current.user, log), method: :patch do |form| %>
+                <%= form.hidden_field :hidden, value: "today" %>
+                <%= form.text_field :weight_out %>
+                <%= form.submit "Enter" %>
+              <% end %>
+            </td>
+          <% else %>
+            <td><%= log.weight_out %></td>
+          <% end %>
+          <% if log.moisture_loss.nil? %>
+          <td><%= 0 %></td>
+             <%   else %>
+             <td><%= "#{(log.moisture_loss * 100).round(2)}%" %></td>
+             <% end %>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+  <h4>Add</h4>
+
+  <%= form_with model: @log, url: user_logs_path, method: :post do |form| %>
+  <div class="mb-3">
+    <%= form.label :batches %>
+    <%= form.number_field :batches, class: "form-control" , placeholder: "1",in: 1..100, step: 1, required: true, value: "1", :readonly => true%>
+  </div>
+  <div class="mb-3">
+    <%= form.label "Batch Size (Kg)" %>
+    <%= form.number_field :batch_size_kg, class: "form-control" , placeholder: "8",in: 0.0..100.0, step: 0.001, required: true, value: "8"%>
+  </div>
+  <div class="mb-3">
+    <%= form.select :lot, Current.user.lots.current_lots_names, required: true %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<h2>Lots available</h2>
+<% Current.user.lots.current_available_lots.each do |lot| %>
+  <div>
+    <%= lot.pcc_id %>,
+    <%= lot.name %>,
+    <strong><%= lot.current_amount %></strong>
+    Kg left
+  </div>
+<% end %>
+</div>
+</div>

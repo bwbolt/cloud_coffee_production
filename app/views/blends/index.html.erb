@@ -1,0 +1,50 @@
+
+
+
+
+
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active " href=<%= blends_path %>>Blends Log</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href=<%=new_blend_path%>>Todays Blends</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Todays Blends</h4>
+
+     <a href=<%= "/download_blends.csv" %> class="btn btn-secondary">Download Blend Records</a>
+
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+          <th scope="col">Blend Num.</th>
+          <th scope="col">Name</th>
+          <th scope="col">Notes</th>
+          <th scope="col">Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Current.user.blends.order(created_at: :desc).each do |blend| %>
+
+          <tr>
+            <td><%= blend.id %></td>
+            <td><%= blend.name %></td>
+            <td><%= blend.notes %></td>
+            <td><%= blend.created_at.strftime("%B %d, %Y %I:%M %p") %></td>
+            <td><%= link_to 'Show', blend %>
+                <%= link_to 'Edit', edit_blend_path(blend) %>
+               <%= link_to 'Destroy', blend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+
+    </tbody>
+  </table>
+

@@ -1,0 +1,57 @@
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link " href=<%= blends_path %>>Blends Log</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href=<%= (Current.user)%>>Todays Blends</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Todays Blends</h4>
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+
+          <th scope="col">Name</th>
+          <th scope="col">Notes</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <% Current.user.blends.todays_blends.each do |blend| %>
+          <tr>
+            <td><%= blend.name %></td>
+            <td><%= blend.notes %></td>
+      <% end %>
+
+    </tbody>
+  </table>
+  <h4>Add</h4>
+
+<%= form_with model: @blend, url: blends_path, method: :post do |form| %>
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter name", required: true %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, class: "form-control", placeholder: "Enter notes" %>
+  </div>
+ <div class="mb-3">
+  <%= form.label :logs %>
+  <%= form.select :logs, Current.user.logs.todays_logs.where.not(id: BlendLog.pluck(:log_id)).order(created_at: :desc).pluck(:name, :id), {}, multiple: true, class: "form-control" %>
+</div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+

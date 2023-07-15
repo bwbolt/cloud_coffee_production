@@ -1,0 +1,70 @@
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href="#">Inventory</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=<%= detailed_inventory_path %>>Detailed Inventory</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Current Inventory</h4>
+    
+    <a href=<%= "/users/#{Current.user.id}>/lots_to_csv.csv" %> class="btn btn-secondary">Download Green Coffee Records</a>
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+
+          <th scope="col">Name</th>
+          <th scope="col">PCC ID</th>
+          <th scope="col">Current Quantity (Kg)</th>
+          <th scope="col">Action</th>
+         
+
+        </tr>
+      </thead>
+      <tbody>
+        <% Current.user.lots.ordered_or_arrived_lots.each do |lot| %>
+          <% if lot.status == 1 %>
+            <tr class="table-primary">
+              <% elsif lot.current_amount < 25  %>
+                <tr class="table-danger">
+                  <% elsif lot.current_amount < 40 %>
+                    <tr class="table-warning">
+                    <% else %>
+                      <tr class="table-success">
+                      <% end %>
+                      <td><%= lot.name %></td>
+                      <td><%= lot.pcc_id %></td>
+                      <td><%= lot.current_amount %></td>
+                      <% if lot.status == 1 %>
+                        <td><%= button_to "Mark Arrived", user_lot_mark_arrived_path(Current.user, lot), method: :patch%></td>
+                      <% else %>
+
+                        <td>
+                        
+
+                          <a class="btn btn-primary" href="<%= edit_user_lot_path(Current.user, lot.id)%>" role="button">Edit</a>
+                           <a class="btn btn-danger" href="<%= user_lot_mark_removed_path(Current.user, lot)%>" role="button">Remove</a>
+                          
+                        </td>
+
+                       
+                      <% end %>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
+              <a href=<%= new_user_lot_path %> class="btn btn-primary">Add New Lot</a>
+
+
+ 
+
+            </div>
+          </div>

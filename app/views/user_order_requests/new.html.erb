@@ -1,0 +1,28 @@
+<h1>Create Order Request</h1>
+
+<%= form_with model: @order_request, url: user_order_requests_path, method: :post do |form| %>
+
+<div class="mb-3">
+  <%= form.label "Employee Name" %>
+  <%= form.text_field :employee_name, class: "form-control" , placeholder: "Bryce Wein", required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Recipient Name" %>
+  <%= form.text_field :recipient_name, class: "form-control" , placeholder: "Name/Buisness", required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Reason" %>
+  <%= form.select :reason, ["Sample","Wholesale","Order For Friend", "PCC Event"], required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Need By Date" %>
+  <%= form.date_field :need_by_date, class: "form-control" , required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Invoice Number" %>
+  <%= form.text_field :invoice_number, class: "form-control" , required: false %>
+</div>
+<div class="mb-3">
+  <%= form.submit class: "btn btn-primary" %>
+</div>
+<% end %>

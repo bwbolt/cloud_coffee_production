@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Cloud Coffee</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <% if Current.user %>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href=<%= user_lots_path(Current.user) %>>Green Coffee</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href=<%= user_logs_path(Current.user) %>>Roast Log</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href=<%= blends_path %>>Blend Log</a>
+          </li>
+          
+          
+        <% end %>
+      </ul>
+      <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
+        <% if Current.user %>
+          <li class="nav-item">
+            <span class="navbar-text"><%= Current.user.email %></span>
+          </li>
+          <li class="nav-item">
+            <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-outline-secondary"%>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign Up", sign_up_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", sign_in_path, class: 'nav-link' %>
+          </li>
+        <%end %>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<br>
+<br>

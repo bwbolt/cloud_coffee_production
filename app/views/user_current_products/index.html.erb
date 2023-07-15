@@ -1,0 +1,48 @@
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href="#">Current Products</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Current Products</h4>
+    
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        
+            <tr class="table-primary">
+                      <td><%= product.name %></td>
+                      <td><%= product.details %></td>
+                        <td>
+                        
+                         
+
+                          <a class="btn btn-danger" href="<%= user_current_product_path(Current.user, product.id)%>"  data-method="delete" role="button" >Delete</a>
+                        </td>
+
+                        
+                   
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
+              <a href=<%= new_user_current_product_path %> class="btn btn-primary">Add New Product</a>
+
+
+ 
+
+            </div>
+          </div>

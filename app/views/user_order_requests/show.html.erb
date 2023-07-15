@@ -1,0 +1,98 @@
+
+
+
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href=<%=user_order_requests_path(Current.user)%>>Order Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=<%=  user_completed_orders_path(Current.user) %>>Completed Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="false" href=<%= "#" %>>  <%=@order_request.recipient_name%></a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title"> <%=@order_request.recipient_name%>  </h1>
+    <h4 class="card-title"> <%=@order_request.employee_name%>  </h4>
+    <h4 class="card-title"> <%=@order_request.reason%>  </h4>
+    <h4 class="card-title"> <%=@order_request.need_by_date%>  </h4>
+
+  
+    
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+
+          <th scope="col">Quantity</th>
+          <th scope="col">Coffee Name</th>
+          <th scope="col">Size</th>
+          <th scope="col">Whole Bean / Ground</th>
+           <% if @order_request.status == 0%>
+          <th scope="col">Actions</th>
+          <% end %>
+          
+
+        </tr>
+      </thead>
+       <tbody>
+        <% @order_request.order_pieces.each do |piece| %>
+        
+            <tr class="table-primary">
+                      <td><%= piece.quantity %></td>
+                      <td><%= piece.coffee_name %></td>
+                        <td><%= piece.size %></td>
+                        <td><%= piece.ground %></td>
+                        <% if @order_request.status == 0%>
+                         <td>
+                          <a class="btn btn-danger" href="<%= user_order_request_order_piece_path(Current.user, @order_request.id, piece.id)%>"  data-method="delete" role="button" >Delete</a>
+                        </td>
+                        <% end %>
+
+            
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+<% if @order_request.status == 0%>
+          <h3>Add Order Piece</h3>
+
+<%= form_with model: @order_piece, url: user_order_request_order_pieces_path(Current.user, @order_request.id), method: :post do |form| %>
+
+<div class="mb-3">
+  <%= form.label "Product Name:" %>
+  <%= form.select :coffee_name, Current.user.current_products.names, required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Size:" %>
+  <%= form.select :size, ["60g", "4oz", "12oz", "2LB", "5LB", "Small", "Medium", "Large", "XLarge", "XXLarge"], required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Quantity:" %>
+  <%= form.select :quantity, [1,2,3,4,5,6,7,8,9,10], required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Whole Bean or Ground?" %>
+  <%= form.select :ground, ["Whole Bean", "Course Ground", "Medium Ground", "Fine Ground", "N/A"], required: true %>
+</div>
+<div class="mb-3">
+  <%= form.submit class: "btn btn-primary" %>
+</div>
+
+
+<%end%>
+
+<% end %>
+
+
+            </div>
+          </div>
+
+
+       

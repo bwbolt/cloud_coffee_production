@@ -1,0 +1,2 @@
+module BlendsHelper
+end

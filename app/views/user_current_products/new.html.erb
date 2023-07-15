@@ -1,0 +1,16 @@
+<h1>Create New Product</h1>
+
+<%= form_with model: @current_product, url: user_current_products_path, method: :post do |form| %>
+
+<div class="mb-3">
+  <%= form.label :name %>
+  <%= form.text_field :name, class: "form-control" , placeholder: "Slightly Dangerous", required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Description" %>
+  <%= form.text_area :details, class: "form-control" , placeholder: "1/3 Guat 1/3 etc....", required: true %>
+</div>
+<div class="mb-3">
+  <%= form.submit class: "btn btn-primary" %>
+</div>
+<% end %>

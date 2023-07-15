@@ -1,0 +1,73 @@
+<h1>Edit <%= @lot.name %> </h1>
+
+<%= form_with model: @lot, url: user_lot_update_path(Current.user, @lot.id), method: :patch do |form| %>
+
+<div class="mb-3">
+  <%= form.label :name %>
+  <%= form.text_field :name, class: "form-control" , placeholder: "Guatamala", required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Pcc Id" %>
+  <%= form.text_field :pcc_id, class: "form-control" , placeholder: "ETH2", required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "ICO" %>
+  <%= form.text_field :ico, class: "form-control" , placeholder: "002/1643/0259"%>
+</div>
+<div class="mb-3">
+  <%= form.label :sku %>
+  <%= form.text_field :sku , class: "form-control", placeholder: "GEN22BREC"%>
+</div>
+<div class="mb-3">
+  <%= form.label :importer %>
+  <%= form.text_field :importer , class: "form-control", placeholder: "Genuine Origin"%>
+</div>
+<div class="mb-3">
+  <%= form.label :description %>
+  <%= form.text_field :description , class: "form-control", placeholder: "Washed, Excelso"%>
+</div>
+<div class="mb-3">
+  <%= form.label "US Arrival Date" %>
+  <%= form.date_field :us_arrival , class: "form-control"%>
+</div>
+<div class="mb-3">
+  <%= form.label "Price Per Lb" %>
+  <%= form.number_field :price_per , class: "form-control", placeholder: "4.87",in: 1.0..500.0, step: 0.01%>
+</div>
+<div class="mb-3">
+  <%= form.label "Sample Roast Date" %>
+  <%= form.date_field :sample_roasted_date , class: "form-control"%>
+</div>
+<div class="mb-3">
+  <%= form.label "Density g/L" %>
+  <%= form.number_field :density , class: "form-control", placeholder: "675",in: 1.0..1000.0, step: 0.01%>
+</div>
+<div class="mb-3">
+  <%= form.label "Moisture Percentage" %>
+  <%= form.number_field :moisture , class: "form-control", placeholder: "12.40",in: 1.0..100.0, step: 0.01%>
+</div>
+<div class="mb-3">
+  <%= form.label "Bean Size" %>
+  <%= form.text_field :bean_size , class: "form-control", placeholder: "17/18"%>
+</div>
+<div class="mb-3">
+  <%= form.label "Item size" %>
+  <%= form.text_field :item_size , class: "form-control", placeholder: "65kg", required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Number of units received" %>
+  <%= form.number_field :quantity_recieved , class: "form-control", placeholder: "1",in: 1.0..20.0, step: 0.01, required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "Kg Received" %>
+  <%= form.number_field :kg_received , class: "form-control", placeholder: "1",in: 1.0..1000, step: 0.01, required: true %>
+</div>
+<div class="mb-3">
+  <%= form.label "invoice_number" %>
+  <%= form.text_field :invoice_number , class: "form-control", placeholder: "SO179209"%>
+</div>
+<div class="mb-3">
+  <%= form.submit class: "btn btn-primary" %>
+
+</div>
+<% end %>

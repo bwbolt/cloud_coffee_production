@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Blend:</strong>
+  <%= @blend_log.blend %>
+</p>
+
+<p>
+  <strong>Log:</strong>
+  <%= @blend_log.log %>
+</p>
+
+<%= link_to 'Edit', edit_blend_log_path(@blend_log) %> |
+<%= link_to 'Back', blend_logs_path %>

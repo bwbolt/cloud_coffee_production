@@ -1,0 +1,75 @@
+<div class="d-flex align-items-center justify-content-center"></div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href="#">Roast Log</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=<%= new_user_log_path %>>Todays Roast</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Roast Log</h4>
+
+     <a href=<%= "/users/#{Current.user.id}>/logs_to_csv.csv" %> class="btn btn-secondary">Download Roast Log Records</a>
+
+    <table class="table card-title">
+      <thead>
+        <tr>
+
+          <th scope="col">Batches</th>
+          <th scope="col">Batch Size (Kg)</th>
+          <th scope="col">Coffee Name</th>
+          <th scope="col">Coffee Pcc Id</th>
+          <th scope="col">Total Roasted (Kg)</th>
+          <th scope="col">Weight Out (Kg)</th>
+          <th scope="col">Moisture Loss </th>
+          <th scope="col">Batch # </th>
+          <th scope="col">Action</th>
+
+          
+
+        </tr>
+      </thead>
+      <tbody>
+        <% Current.user.logs.order(created_at: :desc).each do |log| %>
+
+          <tr>
+            <td><%= log.batches %></td>
+            <td><%= log.batch_size_kg %></td>
+            <td><%= log.lot.name %></td>
+            <td><%= log.lot.pcc_id %></td>
+            <td><%= log.total_roasted %></td>
+
+            <% if log.weight_out.nil? %>
+              <td>
+                <%= form_with url: user_log_weight_out_path(Current.user, log), method: :patch do |form| %>
+                <%= form.text_field :weight_out %>
+                <%= form.submit "Enter" %>
+              <% end %>
+            </td>
+          <% else %>
+            <td><%= log.weight_out %></td>
+          <% end %>
+          <% if log.moisture_loss.nil? %>
+          <td><%= 0 %></td>
+             <%   else %>
+             <td><%= "#{(log.moisture_loss * 100).round(2)}%" %></td>
+             <% end %>
+             <td><%= log.id %></td>
+
+
+            <td>
+  <%= button_to "Remove", user_log_destroy_path(Current.user, log), method: :patch %>
+
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+</div>

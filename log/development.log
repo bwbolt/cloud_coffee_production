@@ -2447,3 +2447,73 @@ Processing by UserLogsController#index as HTML
 Completed 200 OK in 70ms (Views: 39.7ms | ActiveRecord: 23.8ms)
 
 
+Started GET "/" for ::1 at 2023-07-16 21:02:07 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brycewein/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by MainController#index as HTML
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.7ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_flash.html.erb (0.2ms)
+Completed 200 OK in 181ms (Views: 149.5ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/contact_us" for ::1 at 2023-07-16 21:02:11 -0400
+Processing by MainController#contact_us as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering main/contact_us.html.erb within layouts/application
+  Rendered main/contact_us.html.erb within layouts/application (3.3ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+  Rendered shared/_flash.html.erb (0.4ms)
+Completed 200 OK in 73ms (Views: 59.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/contact_us" for ::1 at 2023-07-16 21:02:20 -0400
+Processing by MainController#contact_us as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering main/contact_us.html.erb within layouts/application
+  Rendered main/contact_us.html.erb within layouts/application (1.2ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 75ms (Views: 70.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/blends" for ::1 at 2023-07-16 21:02:22 -0400
+Processing by BlendsController#index as HTML
+  [1m[36mUser Load (14.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering blends/index.html.erb within layouts/application
+  [1m[36mBlend Load (1.9ms)[0m  [1m[34mSELECT "blends".* FROM "blends" WHERE "blends"."user_id" = $1 ORDER BY "blends"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/blends/index.html.erb:36
+  Rendered blends/index.html.erb within layouts/application (86.2ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 138ms (Views: 47.7ms | ActiveRecord: 71.7ms)
+
+
+Started GET "/contact_us" for ::1 at 2023-07-16 21:02:23 -0400
+Processing by MainController#contact_us as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering main/contact_us.html.erb within layouts/application
+  Rendered main/contact_us.html.erb within layouts/application (0.9ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+  Rendered shared/_flash.html.erb (0.3ms)
+Completed 200 OK in 30ms (Views: 22.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/contact_us" for ::1 at 2023-07-16 21:03:13 -0400
+Processing by MainController#contact_us as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering main/contact_us.html.erb within layouts/application
+  Rendered main/contact_us.html.erb within layouts/application (0.8ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_flash.html.erb (0.6ms)
+Completed 200 OK in 44ms (Views: 34.1ms | ActiveRecord: 3.2ms)
+
+
